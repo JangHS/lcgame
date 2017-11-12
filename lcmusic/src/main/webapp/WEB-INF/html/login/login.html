@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Expires" content="0"/> 
+	<meta http-equiv="Pragma" content="no-cache"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet"/>
+
+    <title>MUSIC</title>
+
+
+    <link href="css/animate.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+    
+        <div>
+            <div class="loginColumns">
+                <h2>Enter Game ID</h2>
+            </div>
+            <form class="m-t" role="form" th:action="@{/goMusicGame.go}" th:object="${musicVO}"  action="#" id="loginForm" method="post">
+                <div class="form-group">
+                    <input type="text" th:field="*{gameId}" name="gameId" id="gameId" class="form-control" placeholder="Game ID" required="required"/>
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Start</button>
+                
+            </form>
+            <p class="m-t"> <small> 노래! &copy; 2017</small> </p>
+        </div>
+             <button id="test4" type="button" class="btn btn-w-m btn-warning">test</button>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+    <!-- Custom scripts -->
+    <script type="text/javascript">
+    
+		$("#test4").click(function(){
+  	        $.ajax({
+  	            url:'/test.do',
+  	            type:'post'
+  	        })
+		});
+	    
+    </script>
+
+</body>
+
+</html>

@@ -1,11 +1,75 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSPINIA | Contacts</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/plugins/blueimp/css/blueimp-gallery.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
 </head>
-<body>
-aaaaaaaaaaaa
+
+<body class="top-navigation">
+
+    <div id="wrapper">
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="wrapper wrapper-content animated fadeInUp">
+                    <ul class="notes" id="years">
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+    
+    <script type="text/javascript" src="js/plugins/jplayer/jquery.jplayer.min.js"></script>
+
+    <script type="text/javascript">
+		function selectYear(year){
+			$("#"+year+"txt").css('color','red');
+		}
+		
+		function makeNote(year){
+			var htmlStr=
+	        '<li>'
+	            +'<div style="text-align: center;">'
+	                +'<h1 style="font-size: 70px" id="'+year+'txt">'+year+'</h1>'
+	                + '<a href="javascript:selectYear('+year+')"><i class="fa fa-caret-square-o-right" style="font-size: 50px"></i></a>'
+	            +'</div>'
+	        +'</li>';
+	        
+	        return htmlStr;
+		}
+		
+	    $(document).ready(function(){
+	    	for(var i=1993;i<2018;i++){
+	    		$("#years").append(makeNote(i.toString()));
+	    	}
+	    });
+    </script>
+
 
 </body>
+
 </html>

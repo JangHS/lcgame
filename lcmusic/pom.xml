@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.leafCat</groupId>
-	<artifactId>lcmgr</artifactId>
+	<artifactId>lcmusic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>lcmgr</name>
-	<description>leaf manager pjt</description>
+	<name>lcmusic</name>
+	<description>Music Game</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

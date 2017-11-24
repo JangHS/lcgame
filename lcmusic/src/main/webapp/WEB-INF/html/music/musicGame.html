@@ -13,6 +13,13 @@
     <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <style type="text/css">
+    
+    .year-selected {
+    	color : red;
+	 }
+    
+    </style>
 
 </head>
 
@@ -22,7 +29,7 @@
     <div align="center">
 		<div id="jquery_jplayer_1"></div>
 		<div id="jp_container_1">
-			<label id="selectedYear" style="font-size: 50px; color:white; margin-right: 10px">Select Year</label>
+			<label id="selectedYear" style="font-size: 60px; color:white; margin-right: 10px;">Select Year</label>
 			<a href="#" class="jp-play"><i class="fa fa-play" style="font-size: 50px; margin-right: 10px"></i></a>
 			<a href="#" class="jp-pause"><i class="fa fa-pause" style="font-size: 50px; margin-right: 10px"></i></a>
 		</div>
@@ -44,18 +51,15 @@
     <!-- Mainly scripts -->
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
     <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
 
     <!-- Custom and plugin javascript -->
-    <script src="js/inspinia.js"></script>
-    <script src="js/plugins/pace/pace.min.js"></script>
     
     <script type="text/javascript" src="js/plugins/jplayer/jquery.jplayer.min.js"></script>
 
     <script type="text/javascript">
-    	var ONE_MORE_BINGO_ARR = ["1997", "1998"];
+    
     	var GIFT_ARR = ['1993', '1994'];
     	
     	$("#jquery_jplayer_1").jPlayer({
@@ -100,32 +104,28 @@
     	}
     	
 		function selectYear(year){
-			$("#"+year+"txt").css('color','red');
-			$("#"+year+"ico").css('color','red');
-			$("#selectedYear").html(year);
 			
-			if(ONE_MORE_BINGO_ARR.indexOf(year.toString()) != -1){
-				oneMoreBingoEvent();
-			}
-			if(GIFT_ARR.indexOf(year.toString()) != -1){
-				giftEvent();
+			if($("#"+year+"txt").css('color') == 'rgb(255, 0, 0)'){
+				$("#"+year+"txt").removeClass('year-selected');
+				$("#"+year+"ico").removeClass('year-selected');
+				$("#selectedYear").html("Select Year");
+			}else{
+				$("#"+year+"txt").addClass('year-selected');
+				$("#"+year+"ico").addClass('year-selected');
+				$("#selectedYear").html(year);
+				
+				if(GIFT_ARR.indexOf(year.toString()) != -1){
+					giftEvent();
+				}
+				music_change(year);
 			}
 			
-			music_change(year);
 		}
 		
-		function oneMoreBingoEvent(){
-            swal({
-                title: "EVENT! [빙고 선택권 +1] ",
-                text: "노래를 부르는 분께 드립니다.",
-                type: "success"
-            });
-		}
 		
 		function giftEvent(){
             swal({
-                title: "EVENT! [특별 선물] ",
-                text: "노래를 부르는 분께 드립니다.",
+                title: "노래를 부르는 분께 드리는 선물! ",
                 type: "success"
             });
 		}
@@ -148,7 +148,6 @@
 	    	}
 	    });
     </script>
-
 
 </body>
 
